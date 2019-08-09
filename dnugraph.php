@@ -65,6 +65,10 @@ window.onload = function () {
 		]
 	});
 	chart.render();
+
+	document.getElementById("printChart").addEventListener("click",function(){
+    	chart.print();
+    });  
 }
 </script>
 <?php
@@ -125,6 +129,10 @@ window.onload = function () {
 		]
 	});
 	chart.render();
+	
+	document.getElementById("printChart").addEventListener("click",function(){
+    	chart.print();
+    });  
 }
 </script>
 <?php
@@ -154,6 +162,7 @@ window.onload = function () {
 <div style="padding-top:10px;background-color:white;margin-top:25px; margin-left:25px;margin-right:25px;border-radius:25px" class="jumbotron">
 
 	<h1 style="margin-bottom:10px" class="text-center">Download & Upload Speed Chart</h1>
+ 	<button class="shadow btn btn-primary border-dark float-right" id="printChart"><i class="material-icons">print</i><br>Print Graph</button>
 
 <form method="post">
 	<div class=" row col-sm-12">
@@ -161,7 +170,6 @@ window.onload = function () {
 		
 		<button style="margin-left:5px;" class=" shadow btn btn-primary border-dark col-sm-1 h-50" name="filter" type="submit">Apply</button>
 		<?php  ?>
-		<button class="shadow btn btn-primary border-dark col-sm-1 ml-auto" type="submit"><i class="material-icons">print</i><br>Print Graph</button>
 	</div>
 </form><br>
         <?php echo "<h3>".$nstartd." tarihli ölçümler.<h3>";?><br><br>

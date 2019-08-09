@@ -38,7 +38,7 @@ window.onload = function () {
 			type: "line",
 			showInLegend: true,
                         legendText: "Latency (ms)",
-			toolTipContent: "<p style='color:blue'> {label}</p><hr/>Download Speed: {y} mb/s",
+			toolTipContent: "<p style='color:blue'> {label}</p><hr/>Latency: {y} ms",
 			color: "red" ,
 			dataPoints: [
                                 <?php while ($bans = mysqli_fetch_array($kpilatf)): ?>
@@ -64,6 +64,10 @@ window.onload = function () {
 		]
 	});
 	chart.render();
+
+	document.getElementById("printChart").addEventListener("click",function(){
+    	chart.print();
+    });  
 }
 </script>
 <?php
@@ -98,7 +102,7 @@ window.onload = function () {
 			type: "line",
 			showInLegend: true,
                         legendText: "Latency (ms)",
-			toolTipContent: "<p style='color:blue'> {label}</p><hr/>Download Speed: {y} mb/s",
+			toolTipContent: "<p style='color:blue'> {label}</p><hr/>Latency: {y} ms",
 			color: "red" ,
 			dataPoints: [
                                 <?php while ($bans = mysqli_fetch_array($kpilat)): ?>
@@ -124,6 +128,10 @@ window.onload = function () {
 		]
 	});
 	chart.render();
+
+	document.getElementById("printChart").addEventListener("click",function(){
+    	chart.print();
+    });  
 }
 </script>
 <?php
@@ -154,13 +162,15 @@ window.onload = function () {
 
 	<h1 style="margin-bottom:10px" class="text-center">Latency & Jitter Chart</h1>
 
+ 	<button class="shadow btn btn-primary border-dark float-right" id="printChart"><i class="material-icons">print</i><br>Print Graph</button>
+
 <form method="post">
 	<div class=" row col-sm-12">
 		<input style="margin-left:5px;margin-right:5px" class="text-center form-control border border-info col-sm-2" type="date" name="stdate">
 		
 		<button style="margin-left:5px;" class=" shadow btn btn-primary border-dark col-sm-1 h-50" name="filter" type="submit">Apply</button>
 		<?php  ?>
-		<button class="shadow btn btn-primary border-dark col-sm-1 ml-auto" type="submit"><i class="material-icons">print</i><br>Print Graph</button>
+
 	</div>
 </form><br>
         <?php echo "<h3>".$nstartd." tarihli ölçümler.<h3>";?><br><br>
